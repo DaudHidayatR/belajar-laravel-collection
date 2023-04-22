@@ -196,4 +196,12 @@ class CollectionTest extends TestCase
             'bintang' => 80
         ], $result2->all());
     }
+    public function testTesting()
+    {
+        $collection = collect(['daud', 'hidayat', 'ramadhan']);
+        self::assertTrue($collection->contains('daud'));
+        self::assertTrue($collection->contains(function ($value, $key){
+            return $value == 'daud';
+        }));
+    }
 }
