@@ -146,4 +146,11 @@ class CollectionTest extends TestCase
 
         self::assertEqualsCanonicalizing(['Coding', 'Gaming','Reading', 'Writing'], $result->all());
     }
+    public function testjoin()
+    {
+        $collection = collect(['Daud', 'Hidayat', 'Ramadhan']);
+
+        self::assertEquals("Daud-Hidayat-Ramadhan", $collection->join("-"));
+        self::assertEquals("Daud-Hidayat_Ramadhan", $collection->join("-", "_"));
+    }
 }
