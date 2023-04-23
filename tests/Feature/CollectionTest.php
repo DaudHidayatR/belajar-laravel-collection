@@ -262,4 +262,14 @@ class CollectionTest extends TestCase
             ])
         ], $result->all());
     }
+    public function testSlice()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9,10]);
+        $result = $collection->slice(3);
+
+        self::assertEqualsCanonicalizing([4,5,6,7,8,9,10], $result->all());
+
+        $result = $collection->slice(3,2);
+        self::assertEqualsCanonicalizing([4,5], $result->all());
+    }
 }
